@@ -30,11 +30,10 @@
             <p>CPF Responsável:<br>
             <input type="text" name="cpf" maxlength="11" required="required"></p>
             <p>Valor da Operação:<br>
-            <input type="number" name="valor" required="required"></p>
+            <input type="text" name="valor" required="required"></p>
             <p><input type="radio" name="tipo" value="+" checked="checked">Crédito
-               <input type="radio" name="tipo" value="-">Débito
+                <input type="radio" name="tipo" value="-">Débito</p>
             <p><input type="submit" value="Enviar" name="enviar"></p>
-            
         </form>
     </body>
 </html>

@@ -6,10 +6,11 @@
 
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,7 +51,9 @@ public class CadastrarOperacao extends HttpServlet {
         
         int conta = Integer.parseInt(request.getParameter("conta"));
         String cpf = request.getParameter("cpf");
-        float valor = Float.parseFloat(request.getParameter("tipo") + request.getParameter("conta"));
+        float valor = Float.parseFloat(request.getParameter("tipo") + request.getParameter("valor").replace(",", "."));
+        GregorianCalendar c = new GregorianCalendar();
+        SimpleDateFormat data = new SimpleDateFormat("YYYY/MM/dd H:mm:ss");
             
             response.getWriter().println("<!DOCTYPE html>");
             response.getWriter().println("<html>");
@@ -71,10 +74,11 @@ public class CadastrarOperacao extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/conta_bancaria", "root", "");
-            PreparedStatement stm = conexao.prepareStatement("INSERT INTO `operacao`(`ValorOperacao`, `CPFResponsavelOperacao`, `idContaCorrente`) VALUES (?, ?, ?)");
+            PreparedStatement stm = conexao.prepareStatement("INSERT INTO `operacao`(`ValorOperacao`, `CPFResponsavelOperacao`, `DataOperacao`, `idContaCorrente`) VALUES (?, ?, ?, ?)");
             stm.setFloat(1, valor);
             stm.setString(2, cpf);
-            stm.setInt(3, conta);
+            stm.setString(3, data.format(c.getTime()));
+            stm.setInt(4, conta);
             stm.execute();
             response.getWriter().println("<h2>Operação cadastrada!</h2>");
         } catch (SQLException ex) {
