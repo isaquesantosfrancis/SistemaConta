@@ -16,7 +16,7 @@
         </div>
         <hr>
         <h2>Cadastrar Conta</h2>
-        <form action="" method="post">
+        <form action="CadastrarConta" method="post">
             <p>Número da Conta:<br>
             <input type="text" name="NumeroConta" maxlength="6"></p>
             <p>CPF:<br>
