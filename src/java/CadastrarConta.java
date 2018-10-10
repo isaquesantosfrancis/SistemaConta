@@ -63,8 +63,8 @@ public class CadastrarConta extends HttpServlet {
 "            <h1>Sistema de Conta</h1>\n" +
 "            <ul>\n" +
 "                <li style=\"display:inline; background-color:#EDEDED; padding: 3px;\"><a href=\"CadastraConta.jsp\">Cadastrar Conta</a></li>\n" +
-"                <li style=\"display:inline; background-color:#EDEDED; padding: 3px;\"><a href=\"Operacao.jsp\">Operações</a></li>\n" +
-"                <li style=\"display:inline; background-color:#EDEDED; padding: 3px;\"><a href=\"Extrato.jsp\">Ver Extrato</a></li>\n" +
+"                <li style=\"display:inline; background-color:#EDEDED; padding: 3px;\"><a href=\"Operacao.jsp\">Cadastrar Operação</a></li>\n" +
+"                <li style=\"display:inline; background-color:#EDEDED; padding: 3px;\"><a href=\"Extrato.jsp\">Emitir Extrato</a></li>\n" +
 "            </ul>\n" +
 "        </div>\n" +
 "        <hr>");
