@@ -1,3 +1,5 @@
+package Classes;
+
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
@@ -11,14 +13,14 @@ public class Conta {
     private String cpf;
     
     public static ArrayList optionConta(){
-        ArrayList option = new ArrayList();
+        ArrayList<String> option = new ArrayList();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/conta_bancaria", "root", "");
             PreparedStatement stm = conexao.prepareStatement("SELECT * FROM `contacorrente`");
             ResultSet re = stm.executeQuery();
             while(re.next()){
-                option = "<option value='"+re.getString("conta")+"'>"+re.getString("conta")+"</option>";
+                option.add("<option value='"+re.getString("idContaCorrente")+"'>"+re.getString("NumeroConta")+"</option>");
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex);

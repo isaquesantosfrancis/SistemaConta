@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Classes.Conta"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,9 +19,13 @@
         <h2>Cadastrar Operação</h2>
         <form action="" method="post">
             <p>Número da Conta:<br>
-                <select name="conta" required="required">
+                <select style="width: 173px; height: 25px" name="conta" required="required">
                     <option value="">Selecione uma conta</option>
-                    <% %>
+                    <%  int i; 
+                        int c = Conta.optionConta().size();
+                        for(i=0; i<c; i++){ %>
+                        <%= Conta.optionConta().get(i) %>
+                    <% } %>
                 </select></p>
             <p>CPF Responsável:<br>
             <input type="text" name="cpf" maxlength="11" required="required"></p>
@@ -29,6 +34,7 @@
             <p><input type="radio" name="tipo" value="+" checked="checked">Crédito
                <input type="radio" name="tipo" value="-">Débito
             <p><input type="submit" value="Enviar" name="enviar"></p>
+            
         </form>
     </body>
 </html>

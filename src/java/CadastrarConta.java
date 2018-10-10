@@ -49,9 +49,9 @@ public class CadastrarConta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String numero = request.getParameter("NumeroConta");
         String cpf = request.getParameter("cpf");
-            
             
             response.getWriter().println("<!DOCTYPE html>");
             response.getWriter().println("<html>");
