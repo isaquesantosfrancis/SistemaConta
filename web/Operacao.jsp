@@ -21,6 +21,10 @@
             <input type="text" name="NumeroConta" maxlength="6"></p>
             <p>CPF Responsável:<br>
             <input type="text" name="cpf" maxlength="11"></p>
+            <p>Valor da Operação:<br>
+            <input type="number" name="valor"></p>
+            <p><input type="radio" name="tipo" value="+" checked="checked">Crédito
+               <input type="radio" name="tipo" value="-">Débito
             <p><input type="submit" value="Enviar" name="enviar"></p>
         </form>
     </body>
