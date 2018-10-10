@@ -48,13 +48,14 @@ public class CadastrarOperacao extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String numero = request.getParameter("NumeroConta");
+        int conta = Integer.parseInt(request.getParameter("conta"));
         String cpf = request.getParameter("cpf");
+        float valor = Float.parseFloat(request.getParameter("tipo") + request.getParameter("conta"));
             
             response.getWriter().println("<!DOCTYPE html>");
             response.getWriter().println("<html>");
             response.getWriter().println("<head>");
-            response.getWriter().println("<title>Cadastrar Conta</title>");            
+            response.getWriter().println("<title>Cadastrar Operação</title>");            
             response.getWriter().println("</head>");
             response.getWriter().println("<body>");
             response.getWriter().println("<div>\n" +
@@ -70,11 +71,12 @@ public class CadastrarOperacao extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/conta_bancaria", "root", "");
-            PreparedStatement stm = conexao.prepareStatement("INSERT INTO `contacorrente`(`NumeroConta`, `CPF_Titular`) VALUES (?, ?)");
-            stm.setString(1, numero);
+            PreparedStatement stm = conexao.prepareStatement("INSERT INTO `operacao`(`ValorOperacao`, `CPFResponsavelOperacao`, `idContaCorrente`) VALUES (?, ?, ?)");
+            stm.setFloat(1, valor);
             stm.setString(2, cpf);
+            stm.setInt(3, conta);
             stm.execute();
-            response.getWriter().println("<h2>Conta cadastrada!</h2>");
+            response.getWriter().println("<h2>Operação cadastrada!</h2>");
         } catch (SQLException ex) {
             response.getWriter().println("Erro: " + ex);
         } catch (ClassNotFoundException e) {

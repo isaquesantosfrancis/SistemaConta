@@ -17,7 +17,7 @@
         </div>
         <hr>
         <h2>Cadastrar Operação</h2>
-        <form action="" method="post">
+        <form action="CadastrarOperacao" method="post">
             <p>Número da Conta:<br>
                 <select style="width: 173px; height: 25px" name="conta" required="required">
                     <option value="">Selecione uma conta</option>
