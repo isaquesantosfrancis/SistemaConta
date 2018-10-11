@@ -76,6 +76,7 @@ public class CadastrarConta extends HttpServlet {
             stm.setString(1, numero);
             stm.setString(2, cpf);
             stm.execute();
+            conexao.close();
             response.getWriter().println("<h2>Conta cadastrada!</h2>");
         } catch (SQLException ex) {
             response.getWriter().println("Erro: " + ex);

@@ -80,6 +80,7 @@ public class CadastrarOperacao extends HttpServlet {
             stm.setString(3, data.format(c.getTime()));
             stm.setInt(4, conta);
             stm.execute();
+            conexao.close();
             response.getWriter().println("<h2>Operação cadastrada!</h2>");
         } catch (SQLException ex) {
             response.getWriter().println("Erro: " + ex);

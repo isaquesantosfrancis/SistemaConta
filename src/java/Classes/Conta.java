@@ -22,6 +22,7 @@ public class Conta {
             while(re.next()){
                 option.add("<option value='"+re.getString("idContaCorrente")+"'>"+re.getString("NumeroConta")+"</option>");
             }
+            conexao.close();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex);
         } catch (ClassNotFoundException e) {

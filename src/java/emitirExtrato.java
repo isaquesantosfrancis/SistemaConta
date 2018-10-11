@@ -4,8 +4,13 @@
  * and open the template in the editor.
  */
 
+import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +49,20 @@ public class emitirExtrato extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int conta = Integer.parseInt(request.getParameter("conta"));
-        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/conta_bancaria", "root", "");
+            PreparedStatement stm = conexao.prepareStatement("SELECT * FROM `contacorrente` WHERE `idContaCorrente` = ?");
+            ResultSet re = stm.executeQuery();
+            while(re.next()){
+                
+            }
+            conexao.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Erro: " + e);
+        }
         
         
     }
