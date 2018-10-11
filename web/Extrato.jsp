@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Operação</title>
+        <title>Emitir Extrato</title>
     </head>
     <body>
         <div>
@@ -16,9 +16,9 @@
             </ul>
         </div>
         <hr>
-        <h2></h2>
-        <form action="CadastrarOperacao" method="post">
-            <p>Número da Conta:<br>
+        <h2>Emitir Extrato</h2>
+        <form action="emitirExtrato" method="post">
+            <p>Número da Conta:
                 <select style="width: 173px; height: 25px" name="conta" required="required">
                     <option value="">Selecione uma conta</option>
                     <%  int i; 
@@ -26,14 +26,8 @@
                         for(i=0; i<c; i++){ %>
                         <%= Conta.optionConta().get(i) %>
                     <% } %>
-                </select></p>
-            <p>CPF Responsável:<br>
-            <input type="text" name="cpf" maxlength="11" required="required"></p>
-            <p>Valor da Operação:<br>
-            <input type="text" name="valor" required="required"></p>
-            <p><input type="radio" name="tipo" value="+" checked="checked">Crédito
-                <input type="radio" name="tipo" value="-">Débito</p>
-            <p><input type="submit" value="Enviar" name="enviar"></p>
+                </select>
+                <input type="submit" value="Emitir" name="enviar"></p>
         </form>
     </body>
 </html>
