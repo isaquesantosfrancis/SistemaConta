@@ -67,8 +67,8 @@ public class emitirExtrato extends HttpServlet {
 "        </div>\n" +
 "        <hr>");
             
-                response.getWriter().println("<table border='1px solid'>");
-                response.getWriter().println("<tr><td colspan='2'>Extrato</td></tr>");
+                response.getWriter().println("<table border='1px' width='300px'>");
+                response.getWriter().println("<tr><td colspan='2' align='center'>Extrato</td></tr>");
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/conta_bancaria", "root", "");
