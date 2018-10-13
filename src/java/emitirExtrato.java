@@ -84,7 +84,7 @@ public class emitirExtrato extends HttpServlet {
             stm2.setInt(1, conta);
             ResultSet re2 = stm2.executeQuery();
             while(re2.next()){
-                response.getWriter().println("<tr><td>"+re2.getString("DataOperacao")+"</td>");
+                response.getWriter().println("<tr><td>"+re2.getString("CPFResponsavelOperacao")+"</td>");
                 response.getWriter().println("<td>"+re2.getString("ValorOperacao")+"</td></tr>");
                 saldo = saldo + Float.parseFloat(re2.getString("ValorOperacao"));
             }
